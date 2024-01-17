@@ -4,3 +4,11 @@ services:
     build: ./dockerFiles/adminer/
     ports:
       - 8080:80
+    depends_on:
+      - postgres
+  postgres:
+    build: ./dockerFiles/postgres/
+    environment:
+      POSTGRES_PASSWORD: toto
+    ports:
+      - "5432:5432"
