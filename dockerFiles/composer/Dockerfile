@@ -13,6 +13,9 @@ RUN apk add php-session
 RUN apk add php-pdo
 RUN apk add php-tokenizer
 RUN apk add php-simplexml
+RUN apk --no-cache add php-xml
+RUN apk --no-cache add libxml2-dev
+RUN apk add php-dom
 # -- passe les options au script du Composer installer executé par PHP, indiquant où Composer doit installer et sous quel nom.
 # --install-dir permet de définir le dossier d'installation de composer
 # --filename permet de renommer le fichier composer.phar en composer
