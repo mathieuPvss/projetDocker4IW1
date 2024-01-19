@@ -1,5 +1,5 @@
-CREATE DATABASE blog;
-\c blog;
+CREATE DATABASE db;
+\c db;
 
 CREATE TABLE article (
     id SERIAL PRIMARY KEY,

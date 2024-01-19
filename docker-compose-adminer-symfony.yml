@@ -1,0 +1,27 @@
+version: "3"
+services:
+  adminer:
+    build: ./dockerFiles/adminer/
+    ports:
+      - "8080:80"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    networks:
+      - my-network
+
+  symfony:
+    build:
+      context: ./dockerFiles/symfony/
+      args:
+        - PROJECT_NAME=${PROJECT_NAME}
+#    volumes:
+#      - ./symfony:/var/www/symfony
+    ports:
+      - "8000:8000"
+    depends_on:
+      - adminer
+    networks:
+      - my-network
+
+networks:
+  my-network:

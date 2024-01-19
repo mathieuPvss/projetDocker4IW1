@@ -7,11 +7,12 @@ RUN apk update && apk upgrade
 RUN apk add php php-session php-pgsql
 
 # Copy the adminer file to the container
-RUN mkdir -p /var/www/localhost/htdocs/adminer
-COPY ./adminer.php /var/www/localhost/htdocs/adminer/adminer.php
+WORKDIR /
+COPY ./adminer.php /index.php
+COPY ./default.css /adminer.css
 
 # Expose port 80 (php -S uses port 8000 by default)
 EXPOSE 80
 
 # Start the PHP built-in web server
-CMD ["php", "-S", "0.0.0.0:80", "-t", "/var/www/localhost/htdocs/adminer/"]
+CMD ["php", "-S", "0.0.0.0:80", "-t", "/"]
