@@ -1,12 +1,14 @@
 FROM alpine:latest
 
-ENV POSTGRES_PASSWORD=toto
-
 # Copy SQL file into the container
 COPY init.sql /script/
 
 RUN apk update && \
     apk add postgresql postgresql-client
+
+ENV POSTGRES_USER=${POSTGRES_USER}
+ENV POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+ENV POSTGRES_DB=${POSTGRES_DB}
 
 RUN mkdir -p /run/postgresql && chown -R postgres:postgres /run/postgresql
 USER postgres
