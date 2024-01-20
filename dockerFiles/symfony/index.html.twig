@@ -3,5 +3,10 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    Page d'accueil
+    <h1>Liste des articles:</h1>
+    <ul>
+        {% for article in articles %}
+            <li>{{ article.titre }} /---/ {{ article.author }} /---/ {{ article.content }}</li> <br>            
+        {% endfor %}
+    </ul>
 {% endblock %}

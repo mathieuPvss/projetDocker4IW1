@@ -14,12 +14,10 @@ services:
       context: ./dockerFiles/symfony/
       args:
         - PROJECT_NAME=${PROJECT_NAME}
-#    volumes:
-#      - ./symfony:/var/www/symfony
+    #    volumes:
+    #      - ./symfony:/var/www/symfony
     ports:
       - "8000:8000"
-    depends_on:
-      - adminer
     networks:
       - my-network
 
