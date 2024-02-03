@@ -14,10 +14,19 @@ services:
       context: ./dockerFiles/symfony/
       args:
         - PROJECT_NAME=${PROJECT_NAME}
-    #    volumes:
-    #      - ./symfony:/var/www/symfony
+    volumes:
+      - ./symfonyProject:/my_project_directory
     ports:
       - "8000:8000"
+    networks:
+      - my-network
+    depends_on:
+      - composer
+
+  composer:
+    build: ./dockerFiles/composer/
+    volumes:
+      - ./symfonyProject/:/volume/my_project_directory
     networks:
       - my-network
 

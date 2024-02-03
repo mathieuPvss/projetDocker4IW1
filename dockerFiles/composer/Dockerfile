@@ -20,3 +20,16 @@ RUN apk add php-dom
 # --install-dir permet de définir le dossier d'installation de composer
 # --filename permet de renommer le fichier composer.phar en composer
 RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+
+RUN composer create-project symfony/skeleton my_project_directory
+
+WORKDIR /my_project_directory
+RUN composer install
+RUN composer require doctrine/orm
+RUN composer require doctrine/doctrine-bundle
+RUN composer require symfony/twig-bundle
+
+
+WORKDIR /volume/my_project_directory
+CMD ["cp", "-R", "/my_project_directory/", "/volume"]
