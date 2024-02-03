@@ -30,6 +30,7 @@ RUN composer require doctrine/orm
 RUN composer require doctrine/doctrine-bundle
 RUN composer require symfony/twig-bundle
 
-
+# je n'ai pas pu faire un volume de /my_project_directory directement 
+# car --> https://stackoverflow.com/questions/72277348/docker-is-not-copying-file-on-a-shared-volume-during-build
 WORKDIR /volume/my_project_directory
 CMD ["cp", "-R", "/my_project_directory/", "/volume"]
