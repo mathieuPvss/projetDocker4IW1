@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 3
+sleep 10
 
 cd /my_project_directory
 sed -i 's|^DATABASE_URL="postgresql.*|DATABASE_URL="postgresql://postgres:toto@postgres:5432/db"|g' .env

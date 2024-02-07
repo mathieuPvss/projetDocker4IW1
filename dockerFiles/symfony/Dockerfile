@@ -32,7 +32,7 @@ RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' 
 RUN apk add symfony-cli
 
 # activer les extensions
-WORKDIR /etc/php81
+WORKDIR /etc/php82
 RUN sed -i 's|^;extension=pdo_pgsql|extension=pdo_pgsql|g' php.ini
 RUN sed -i 's|^;extension=pgsql|extension=pgsql|g' php.ini
 
