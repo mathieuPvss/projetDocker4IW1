@@ -41,12 +41,11 @@ RUN sed -i 's|^;extension=pgsql|extension=pgsql|g' php.ini
 COPY doctrine.yaml DefaultController.php index.html.twig /fileForTheProject/
 
 # copier le script d'entrée pour quil puisse etre lancé au démarrage du conteneur (entrypoint)
-WORKDIR /
-COPY entrypoint.sh .
-RUN chmod +x /entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
 
 EXPOSE 8000
 
+WORKDIR /my_project_directory
 # on est obligé de passer par un script car on veut modifier des choses et ajouter des fichier dans le volume partager avec composer
 # ce volume represente notre projet symfony qui est initialisé par composer
 # donc on ne peut faire les actions du script directement dans le dockerfile car au momenet du build le volume n'existe pas encore et donc on a pas accés à ces fichiers

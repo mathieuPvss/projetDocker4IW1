@@ -16,6 +16,7 @@ RUN apk add php-simplexml
 RUN apk --no-cache add php-xml
 RUN apk --no-cache add libxml2-dev
 RUN apk add php-dom
+RUN apk add bash
 # -- passe les options au script du Composer installer executé par PHP, indiquant où Composer doit installer et sous quel nom.
 # --install-dir permet de définir le dossier d'installation de composer
 # --filename permet de renommer le fichier composer.phar en composer
@@ -32,6 +33,9 @@ RUN composer require symfony/twig-bundle
 
 # je n'ai pas pu faire un volume de /my_project_directory directement 
 # car --> https://stackoverflow.com/questions/72277348/docker-is-not-copying-file-on-a-shared-volume-during-build
-#  --> https://stackoverflow.com/questions/59724570/docker-compose-shared-volumes-between-service
+#     --> https://stackoverflow.com/questions/59724570/docker-compose-shared-volumes-between-service
+WORKDIR /
+ADD entrypoint.sh /entrypoint.sh
+
 WORKDIR /volume/my_project_directory
-CMD ["cp", "-R", "/my_project_directory/", "/volume"]
+CMD /bin/bash /entrypoint.sh
