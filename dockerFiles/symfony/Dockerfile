@@ -42,6 +42,7 @@ COPY doctrine.yaml DefaultController.php index.html.twig /fileForTheProject/
 
 # copier le script d'entrée pour quil puisse etre lancé au démarrage du conteneur (entrypoint)
 ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 8000
 
