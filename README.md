@@ -24,3 +24,9 @@ Connection of the db with adminer:
 - password: toto
 - host: postgres
 - db_name: db
+
+DockerHub images
+- Adminer : https://hub.docker.com/r/beleguic/adminer
+- Postgres : https://hub.docker.com/r/beleguic/postgres
+- Composer : https://hub.docker.com/r/beleguic/composer
+- Symfony : https://hub.docker.com/r/beleguic/symfony
