@@ -1,6 +1,18 @@
 version: "3.8"
 
 services:
+
+  adminer:
+    build: ./dockerFiles/adminer/
+    ports:
+      - "8080:80"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    networks:
+      - my-network
+    depends_on:
+      - postgres
+
   postgres:
     build: ./dockerFiles/postgres/
     environment:

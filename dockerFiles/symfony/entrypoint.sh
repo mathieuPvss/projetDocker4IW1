@@ -2,6 +2,7 @@
 
 while [ ! -f "/my_project_directory/.env" ]; do
     echo "Le fichier .env n'existe pas. Attente..."
+    touch "/my_project_directory/.env"
     sleep 1
 done
 
@@ -17,6 +18,7 @@ done
 
 while [ ! -d "/my_project_directory/templates/" ]; do
     echo "Le répertoire /my_project_directory/templates/ n'existe pas. Attente..."
+    mkdir "/my_project_directory/templates/"
     sleep 1
 done
 
