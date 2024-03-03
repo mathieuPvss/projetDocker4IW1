@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   adminer:
-    build: ./dockerFiles/adminer/
+    image: 'beleguic/adminer'
     ports:
       - "8080:80"
     environment:
@@ -14,7 +14,7 @@ services:
       - postgres
 
   postgres:
-    build: ./dockerFiles/postgres/
+    image: 'beleguic/postgres'
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}

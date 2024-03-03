@@ -2,8 +2,8 @@ version: "3"
 services:
 
   symfony:
+    image: 'beleguic/symfony'
     build:
-      context: ./dockerFiles/symfony/
       args:
         - PROJECT_NAME=${PROJECT_NAME}
     volumes:
@@ -16,7 +16,7 @@ services:
       - composer
 
   composer:
-    build: ./dockerFiles/composer/
+    image: 'beleguic/composer'
     volumes:
       - ./symfonyProject/:/volume/my_project_directory
     networks:
