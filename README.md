@@ -13,10 +13,10 @@ Symfony : http://localhost:8000
 Change All entrypoint.sh file from CRLF to LF ...
 
 To execute Composer instruction with composer service : `docker-compose -f docker-compose-adminer-composer-symfony.yml run composer <command>`<br>
-exemple: docker-compose -f docker-compose-adminer-composer-symfony.yml run composer composer require symfony/yaml:7.0.0 <br>
-<br> 
+exemple: docker-compose-composer-symfony.yml run composer composer require symfony/yaml:7.0.0 <br>
+<br>
 To execute Symfony CLI instruction : `docker-compose -f docker-compose-adminer-composer-symfony.yml exec symfony <Command>` <br>
-exemple: docker-compose -f docker-compose-adminer-composer-symfony.yml exec symfony php bin/console cache:clear
+exemple: docker-compose -f docker-compose-composer-symfony.yml exec symfony php bin/console cache:clear
 
 Connection of the db with adminer:
 
@@ -26,6 +26,7 @@ Connection of the db with adminer:
 - db_name: db
 
 DockerHub images
+
 - Adminer : https://hub.docker.com/r/beleguic/adminer
 - Postgres : https://hub.docker.com/r/beleguic/postgres
 - Composer : https://hub.docker.com/r/beleguic/composer
