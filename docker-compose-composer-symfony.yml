@@ -2,8 +2,9 @@ version: "3"
 services:
 
   symfony:
-    image: 'beleguic/symfony'
+
     build:
+      context: ./dockerFiles/symfony
       args:
         - PROJECT_NAME=${PROJECT_NAME}
     volumes:
